@@ -31,6 +31,7 @@
 	import Breadcrumb from '@/components/Breadcrumb'
 	import Hamburger from '@/components/Hamburger'
 	import SvgIcon from '@/components/SvgIcon'
+	import cookie from 'js-cookie'
 
 	export default {
 		components: {
@@ -64,6 +65,7 @@
 			logout() {
 				window.localStorage.removeItem('token')
 				window.localStorage.removeItem('user')
+				cookie.remove('token');
 				this.$router.push('/login')
 				this.msgSuccess('退出成功')
 			}
